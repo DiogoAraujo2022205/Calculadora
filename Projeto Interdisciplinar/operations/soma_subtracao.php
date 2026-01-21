@@ -102,6 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <section class="config-section">
                 <div class="section-header">
                     <h2> Configuração</h2>
+                    <p>Defina a operação e as dimensões das matrizes</p>
                 </div>
                 
                 <?php if ($erro): ?>
@@ -327,4 +328,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
     </script>
 </body>
+
 </html>

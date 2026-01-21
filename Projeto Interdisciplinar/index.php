@@ -41,7 +41,7 @@ session_start();
                 </a>
 
                 <!-- Operação 2 -->
-                <a href="" class="operation-card">
+                <a href="operations/multiplicacao_escalar.php" class="operation-card">
                     <div class="operation-content">
                         <h3>2. Multiplicação por Escalar</h3>
                         <p>Multiplicação de uma matriz por um número real</p>

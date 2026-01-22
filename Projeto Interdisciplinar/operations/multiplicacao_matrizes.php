@@ -402,14 +402,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
             }
         }
-
-        // Focar no primeiro campo ao carregar
-        document.addEventListener('DOMContentLoaded', function () {
-            const primeiroCampo = document.querySelector('.matrix-input');
-            if (primeiroCampo) {
-                primeiroCampo.focus();
-            }
-        });
+        
     </script>
     <style>
         .compatibility-check {
@@ -455,5 +448,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     </style>
 </body>
+
 
 </html>

@@ -92,3 +92,46 @@ function operarMatrizes($matrizA, $matrizB, $operacao = 'soma') {
     
     return $resultado;
 }
+
+/**
+ * Multiplica uma matriz por escalar 
+ */
+function multiplicarPorEscalar($matriz, $escalar) {
+    $linhas = count($matriz);
+    $colunas = count($matriz[0]);
+    $resultado = [];
+
+    for ($i = 0; $i < $linhas; $i++) {
+        $resultado[$i] = [];
+        for ($j = 0; $j < $colunas; $j++) {
+            $resultado[$i][$j] = $matriz[$i][$j] * $escalar;
+        }
+    }
+
+    return $resultado;
+}
+/**
+ * Multiplica duas matrizes
+ */
+function multiplicarMatrizes($matrizA, $matrizB) {
+    $linhasA = count($matrizA);
+    $colunasA = count($matrizA[0]);
+    $linhasB = count($matrizB);
+    $colunasB = count($matrizB[0]);
+    
+    if ($colunasA != $linhasB) {
+        return false; // Dimensões incompatíveis
+    }
+    
+    $resultado = array_fill(0, $linhasA, array_fill(0, $colunasB, 0));
+    
+    for ($i = 0; $i < $linhasA; $i++) {
+        for ($j = 0; $j < $colunasB; $j++) {
+            for ($k = 0; $k < $colunasA; $k++) {
+                $resultado[$i][$j] += $matrizA[$i][$k] * $matrizB[$k][$j];
+            }
+        }
+    }
+    
+    return $resultado;
+}

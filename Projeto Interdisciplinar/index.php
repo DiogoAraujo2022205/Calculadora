@@ -49,7 +49,7 @@ session_start();
                 </a>
 
                 <!-- Operação 3 -->
-                <a href="" class="operation-card">
+                <a href="operations/multiplicacao_matrizes.php" class="operation-card">
                     <div class="operation-content">
                         <h3>3. Multiplicação de Matrizes</h3>
                         <p>Multiplicação entre duas matrizes compatíveis</p>
@@ -91,3 +91,4 @@ session_start();
     </div>
 </body>
 </html>
+

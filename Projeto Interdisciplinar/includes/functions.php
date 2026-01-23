@@ -135,3 +135,40 @@ function multiplicarMatrizes($matrizA, $matrizB) {
     
     return $resultado;
 }
+
+
+function calcularDeterminante($matriz) {
+    $n = count($matriz);
+    
+    // Verificar se é matriz quadrada
+    if ($n != count($matriz[0])) {
+        return "Erro: A matriz não é quadrada";
+    }
+    
+    if ($n == 1) {
+        return $matriz[0][0];
+    }
+    elseif ($n == 2) {
+        return $matriz[0][0] * $matriz[1][1] - $matriz[0][1] * $matriz[1][0];
+    }
+    elseif ($n == 3) {
+        return $matriz[0][0] * ($matriz[1][1] * $matriz[2][2] - $matriz[1][2] * $matriz[2][1])
+             - $matriz[0][1] * ($matriz[1][0] * $matriz[2][2] - $matriz[1][2] * $matriz[2][0])
+             + $matriz[0][2] * ($matriz[1][0] * $matriz[2][1] - $matriz[1][1] * $matriz[2][0]);
+    }
+    elseif ($n == 4) {
+        return $matriz[0][0] * ($matriz[1][1] * ($matriz[2][2] * $matriz[3][3] - $matriz[2][3] * $matriz[3][2]) - $matriz[1][2] * ($matriz[2][1] * $matriz[3][3] - $matriz[2][3] * $matriz[3][1]) + $matriz[1][3] * ($matriz[2][1] * $matriz[3][2] - $matriz[2][2] * $matriz[3][1]))
+             - $matriz[0][1] * ($matriz[1][0] * ($matriz[2][2] * $matriz[3][3] - $matriz[2][3] * $matriz[3][2]) - $matriz[1][2] * ($matriz[2][0] * $matriz[3][3] - $matriz[2][3] * $matriz[3][0]) + $matriz[1][3] * ($matriz[2][0] * $matriz[3][2] - $matriz[2][2] * $matriz[3][0]))
+             + $matriz[0][2] * ($matriz[1][0] * ($matriz[2][1] * $matriz[3][3] - $matriz[2][3] * $matriz[3][1]) - $matriz[1][1] * ($matriz[2][0] * $matriz[3][3] - $matriz[2][3] * $matriz[3][0]) + $matriz[1][3] * ($matriz[2][0] * $matriz[3][1] - $matriz[2][1] * $matriz[3][0]))
+             - $matriz[0][3] * ($matriz[1][0] * ($matriz[2][1] * $matriz[3][2] - $matriz[2][2] * $matriz[3][1]) - $matriz[1][1] * ($matriz[2][0] * $matriz[3][2] - $matriz[2][2] * $matriz[3][0]) + $matriz[1][2] * ($matriz[2][0] * $matriz[3][1] - $matriz[2][1] * $matriz[3][0]));
+    }
+    elseif ($n == 5) {
+        return $matriz[0][0] * ($matriz[1][1] * ($matriz[2][2] * ($matriz[3][3] * $matriz[4][4] - $matriz[3][4] * $matriz[4][3]) - $matriz[2][3] * ($matriz[3][2] * $matriz[4][4] - $matriz[3][4] * $matriz[4][2]) + $matriz[2][4] * ($matriz[3][2] * $matriz[4][3] - $matriz[3][3] * $matriz[4][2])) - $matriz[1][2] * ($matriz[2][1] * ($matriz[3][3] * $matriz[4][4] - $matriz[3][4] * $matriz[4][3]) - $matriz[2][3] * ($matriz[3][1] * $matriz[4][4] - $matriz[3][4] * $matriz[4][1]) + $matriz[2][4] * ($matriz[3][1] * $matriz[4][3] - $matriz[3][3] * $matriz[4][1])) + $matriz[1][3] * ($matriz[2][1] * ($matriz[3][2] * $matriz[4][4] - $matriz[3][4] * $matriz[4][2]) - $matriz[2][2] * ($matriz[3][1] * $matriz[4][4] - $matriz[3][4] * $matriz[4][1]) + $matriz[2][4] * ($matriz[3][1] * $matriz[4][2] - $matriz[3][2] * $matriz[4][1])) - $matriz[1][4] * ($matriz[2][1] * ($matriz[3][2] * $matriz[4][3] - $matriz[3][3] * $matriz[4][2]) - $matriz[2][2] * ($matriz[3][1] * $matriz[4][3] - $matriz[3][3] * $matriz[4][1]) + $matriz[2][3] * ($matriz[3][1] * $matriz[4][2] - $matriz[3][2] * $matriz[4][1])))
+             - $matriz[0][1] * ($matriz[1][0] * ($matriz[2][2] * ($matriz[3][3] * $matriz[4][4] - $matriz[3][4] * $matriz[4][3]) - $matriz[2][3] * ($matriz[3][2] * $matriz[4][4] - $matriz[3][4] * $matriz[4][2]) + $matriz[2][4] * ($matriz[3][2] * $matriz[4][3] - $matriz[3][3] * $matriz[4][2])) - $matriz[1][2] * ($matriz[2][0] * ($matriz[3][3] * $matriz[4][4] - $matriz[3][4] * $matriz[4][3]) - $matriz[2][3] * ($matriz[3][0] * $matriz[4][4] - $matriz[3][4] * $matriz[4][0]) + $matriz[2][4] * ($matriz[3][0] * $matriz[4][3] - $matriz[3][3] * $matriz[4][0])) + $matriz[1][3] * ($matriz[2][0] * ($matriz[3][2] * $matriz[4][4] - $matriz[3][4] * $matriz[4][2]) - $matriz[2][2] * ($matriz[3][0] * $matriz[4][4] - $matriz[3][4] * $matriz[4][0]) + $matriz[2][4] * ($matriz[3][0] * $matriz[4][2] - $matriz[3][2] * $matriz[4][0])) - $matriz[1][4] * ($matriz[2][0] * ($matriz[3][2] * $matriz[4][3] - $matriz[3][3] * $matriz[4][2]) - $matriz[2][2] * ($matriz[3][0] * $matriz[4][3] - $matriz[3][3] * $matriz[4][0]) + $matriz[2][3] * ($matriz[3][0] * $matriz[4][2] - $matriz[3][2] * $matriz[4][0])))
+             + $matriz[0][2] * ($matriz[1][0] * ($matriz[2][1] * ($matriz[3][3] * $matriz[4][4] - $matriz[3][4] * $matriz[4][3]) - $matriz[2][3] * ($matriz[3][1] * $matriz[4][4] - $matriz[3][4] * $matriz[4][1]) + $matriz[2][4] * ($matriz[3][1] * $matriz[4][3] - $matriz[3][3] * $matriz[4][1])) - $matriz[1][1] * ($matriz[2][0] * ($matriz[3][3] * $matriz[4][4] - $matriz[3][4] * $matriz[4][3]) - $matriz[2][3] * ($matriz[3][0] * $matriz[4][4] - $matriz[3][4] * $matriz[4][0]) + $matriz[2][4] * ($matriz[3][0] * $matriz[4][3] - $matriz[3][3] * $matriz[4][0])) + $matriz[1][3] * ($matriz[2][0] * ($matriz[3][1] * $matriz[4][4] - $matriz[3][4] * $matriz[4][1]) - $matriz[2][1] * ($matriz[3][0] * $matriz[4][4] - $matriz[3][4] * $matriz[4][0]) + $matriz[2][4] * ($matriz[3][0] * $matriz[4][1] - $matriz[3][1] * $matriz[4][0])) - $matriz[1][4] * ($matriz[2][0] * ($matriz[3][1] * $matriz[4][3] - $matriz[3][3] * $matriz[4][1]) - $matriz[2][1] * ($matriz[3][0] * $matriz[4][3] - $matriz[3][3] * $matriz[4][0]) + $matriz[2][3] * ($matriz[3][0] * $matriz[4][1] - $matriz[3][1] * $matriz[4][0])))
+             - $matriz[0][3] * ($matriz[1][0] * ($matriz[2][1] * ($matriz[3][2] * $matriz[4][4] - $matriz[3][4] * $matriz[4][2]) - $matriz[2][2] * ($matriz[3][1] * $matriz[4][4] - $matriz[3][4] * $matriz[4][1]) + $matriz[2][4] * ($matriz[3][1] * $matriz[4][2] - $matriz[3][2] * $matriz[4][1])) - $matriz[1][1] * ($matriz[2][0] * ($matriz[3][2] * $matriz[4][4] - $matriz[3][4] * $matriz[4][2]) - $matriz[2][2] * ($matriz[3][0] * $matriz[4][4] - $matriz[3][4] * $matriz[4][0]) + $matriz[2][4] * ($matriz[3][0] * $matriz[4][2] - $matriz[3][2] * $matriz[4][0])) + $matriz[1][2] * ($matriz[2][0] * ($matriz[3][1] * $matriz[4][4] - $matriz[3][4] * $matriz[4][1]) - $matriz[2][1] * ($matriz[3][0] * $matriz[4][4] - $matriz[3][4] * $matriz[4][0]) + $matriz[2][4] * ($matriz[3][0] * $matriz[4][1] - $matriz[3][1] * $matriz[4][0])) - $matriz[1][4] * ($matriz[2][0] * ($matriz[3][1] * $matriz[4][2] - $matriz[3][2] * $matriz[4][1]) - $matriz[2][1] * ($matriz[3][0] * $matriz[4][2] - $matriz[3][2] * $matriz[4][0]) + $matriz[2][2] * ($matriz[3][0] * $matriz[4][1] - $matriz[3][1] * $matriz[4][0])))
+             + $matriz[0][4] * ($matriz[1][0] * ($matriz[2][1] * ($matriz[3][2] * $matriz[4][3] - $matriz[3][3] * $matriz[4][2]) - $matriz[2][2] * ($matriz[3][1] * $matriz[4][3] - $matriz[3][3] * $matriz[4][1]) + $matriz[2][3] * ($matriz[3][1] * $matriz[4][2] - $matriz[3][2] * $matriz[4][1])) - $matriz[1][1] * ($matriz[2][0] * ($matriz[3][2] * $matriz[4][3] - $matriz[3][3] * $matriz[4][2]) - $matriz[2][2] * ($matriz[3][0] * $matriz[4][3] - $matriz[3][3] * $matriz[4][0]) + $matriz[2][3] * ($matriz[3][0] * $matriz[4][2] - $matriz[3][2] * $matriz[4][0])) + $matriz[1][2] * ($matriz[2][0] * ($matriz[3][1] * $matriz[4][3] - $matriz[3][3] * $matriz[4][1]) - $matriz[2][1] * ($matriz[3][0] * $matriz[4][3] - $matriz[3][3] * $matriz[4][0]) + $matriz[2][3] * ($matriz[3][0] * $matriz[4][1] - $matriz[3][1] * $matriz[4][0])) - $matriz[1][3] * ($matriz[2][0] * ($matriz[3][1] * $matriz[4][2] - $matriz[3][2] * $matriz[4][1]) - $matriz[2][1] * ($matriz[3][0] * $matriz[4][2] - $matriz[3][2] * $matriz[4][0]) + $matriz[2][2] * ($matriz[3][0] * $matriz[4][1] - $matriz[3][1] * $matriz[4][0])));
+    }
+    
+    return "Implementação apenas para matrizes até 5x5";
+}

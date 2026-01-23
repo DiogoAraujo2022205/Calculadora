@@ -245,7 +245,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             <!-- Operador -->
                             <div class="operator-box">
-                                <div class="operator">
+                                <div class="operator-icon">
                                     <i class="fas fa-times"></i>
                                 </div>
                             </div>
@@ -451,3 +451,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 </html>
+

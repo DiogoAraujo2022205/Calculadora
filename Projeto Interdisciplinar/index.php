@@ -57,7 +57,7 @@ session_start();
                 </a>
 
                 <!-- Operação 4 -->
-                <a href="" class="operation-card">
+                <a href="operations/determinante.php" class="operation-card">
                     <div class="operation-content">
                         <h3>4. Determinante</h3>
                         <p>Cálculo do determinante de matrizes quadradas</p>
@@ -91,4 +91,5 @@ session_start();
     </div>
 </body>
 </html>
+
 

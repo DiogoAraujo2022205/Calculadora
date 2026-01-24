@@ -3,6 +3,7 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@ session_start();
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <div class="container">
         <!-- Cabeçalho -->
@@ -21,7 +23,7 @@ session_start();
                 <div class="project-info">
                     <p><strong>Projeto Interdisciplinar 2025/2026</strong></p>
                     <p>Matemática | Programação I | Tecnologias de Internet I</p>
-                    <p>Introdução à ciência dos computadores</p>
+                    <p>Introdução à Ciência dos Computadores</p>
                 </div>
             </div>
         </header>
@@ -30,7 +32,7 @@ session_start();
             <h2 class="section-title">
                 Operações Disponíveis
             </h2>
-            
+
             <div class="operations-grid">
                 <!-- Operação 1 -->
                 <a href="operations/soma_subtracao.php" class="operation-card">
@@ -65,31 +67,41 @@ session_start();
                 </a>
 
                 <!-- Operação 5 -->
-                <a href="" class="operation-card">
+                <a href="operations/inversa.php" class="operation-card">
                     <div class="operation-content">
                         <h3>5. Matriz Inversa</h3>
                         <p>Cálculo da matriz inversa</p>
                     </div>
                 </a>
 
+            </div>
+        </main>
+        <main class="main-content">
+            <div class="operations-grid">
                 <!-- Operação 6 -->
-                <a href="" class="operation-card">
+                <a href="operations/criptografia.php" class="operation-card">
                     <div class="operation-content">
-                        <h3>6. Criptografar e Desriptografar</h3>
-                        <p>Criptografar e Descriptografar mensagens usando matrizes</p>
+                        <h3>6. Criptografar</h3>
+                        <p>Criptografar mensagens usando matrizes</p>
+                    </div>
+                </a>
+
+                <!-- Operação 6 -->
+                <a href="operations/criptografia.php" class="operation-card">
+                    <div class="operation-content">
+                        <h3>7. Descriptografar</h3>
+                        <p>Descriptografar matrizes usando matrizes</p>
                     </div>
                 </a>
             </div>
         </main>
-
         <!-- Rodapé -->
-        <footer class="main-footer">           
+        <footer class="main-footer">
             <div class="footer-bottom">
                 <p>Calculadora de Matrizes - Projeto Interdisciplinar 2025/2026</p>
             </div>
         </footer>
     </div>
 </body>
+
 </html>
-
-

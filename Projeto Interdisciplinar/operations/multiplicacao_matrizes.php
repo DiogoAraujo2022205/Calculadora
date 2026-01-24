@@ -111,13 +111,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
 
                 <a href="../index.php" class="back-btn">
-                    <i class="fas fa-arrow-left"></i> Voltar ao Menu
+                    Voltar ao Menu
                 </a>
 
             </div>
 
             <div class="operation-instructions">
-                <p><i class="fas fa-exclamation-triangle"></i> <strong>Regra:</strong> A multiplicação A×B só é possível
+                <p><strong>Regra:</strong> A multiplicação A×B só é possível
                     se o número de colunas de A for igual ao número de linhas de B.</p>
             </div>
         </header>
@@ -142,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="form-row">
                         <div class="form-group">
                             <label for="linhasA">
-                                 Linhas de A
+                                Linhas de A
                             </label>
                             <input type="number" name="linhasA" id="linhasA" min="1" max="6"
                                 value="<?php echo $linhasA; ?>" required class="form-input">
@@ -193,14 +193,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     <div class="form-actions">
                         <button type="submit" name="configurar" class="btn btn-primary">
-                             Configurar Matrizes
+                            Configurar Matrizes
                         </button>
-
-                        <?php if (isset($_POST['configurar']) || (isset($_SESSION['linhasA']) && $colunasA == $linhasB)): ?>
-                            <button type="button" onclick="preencherAleatorio()" class="btn btn-secondary">
-                                 Preencher Aleatoriamente
-                            </button>
-                        <?php endif; ?>
                     </div>
                 </form>
             </section>
@@ -266,7 +260,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="matrix-cell">
                                                     <input type="number" step="any" name="<?php echo $nome; ?>"
                                                         value="<?php echo $valor; ?>" placeholder="0" class="matrix-input">
-                                                    
+
                                                 </div>
                                             <?php endfor; ?>
                                         </div>
@@ -279,6 +273,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <button type="submit" name="calcular" class="btn btn-success btn-large">
                                 Calcular Multiplicação
                             </button>
+
+                            <?php if (isset($_POST['configurar']) || (isset($_SESSION['linhasA']) && $colunasA == $linhasB)): ?>
+                                <button type="button" onclick="preencherAleatorio()" class="btn btn-secondary">
+                                    Preencher Aleatoriamente
+                                </button>
+                            <?php endif; ?>
+
                             <button type="reset" class="btn btn-warning">
                                 Limpar Campos
                             </button>
@@ -336,11 +337,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
 
                     <div class="result-actions">
-                        <button onclick="salvarResultado()" class="btn btn-secondary">
-                            Salvar Resultado
-                        </button>
+                        <form method="POST" action="salvar_resultado.php" target="_blank">
+                            <input type="hidden" name="matriz_resultado"
+                                value='<?php echo json_encode($matrizResultado); ?>'>
+                            <input type="hidden" name="formato" value="json">
+                            <button type="submit" class="btn">
+                                <i class="fas fa-save"></i> Salvar JSON Criptografado
+                            </button>
+                        </form>
+
+                        <!-- Formulário para HTML -->
+                        <form method="POST" action="salvar_resultado.php" target="_blank">
+                            <input type="hidden" name="matriz_resultado"
+                                value='<?php echo json_encode($matrizResultado); ?>'>
+                            <input type="hidden" name="formato" value="html">
+                            <button type="submit" class="btn">
+                                <i class="fas fa-file-alt"></i> Salvar HTML Criptografado
+                            </button>
+                        </form>
                         <a href="?novo=1" class="btn btn-primary">
-                           Novo Cálculo
+                            Novo Cálculo
                         </a>
                     </div>
                 </section>
@@ -402,7 +418,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
             }
         }
-        
+
     </script>
     <style>
         .compatibility-check {
@@ -451,4 +467,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 </html>
-

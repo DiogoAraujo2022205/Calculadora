@@ -1,6 +1,6 @@
 <?php
-// salvar_resultado.php
 session_start();
+include_once '../includes/functions.php';
 
 // BIBLIOTECA DE MATRIZES CODIFICADORAS
 $matrizesCodificadoras = [
@@ -11,14 +11,14 @@ $matrizesCodificadoras = [
 
     // Matriz 2x2 (para matrizes 2xN ou Nx2)
     '2x2' => [
-        [3, 2],
-        [1, 4]
+        [1, 2],
+        [3, 5]
     ],
 
     // Matriz 3x3 (para matrizes 3xN ou Nx3)
     '3x3' => [
         [1, 2, 1],
-        [2, 3, 2],
+        [2, 5, 2],
         [1, 2, 2]
     ],
 
@@ -79,61 +79,6 @@ if (!isset($matrizesCodificadoras[$chaveCodificadora])) {
 }
 
 $matrizCodificadora = $matrizesCodificadoras[$chaveCodificadora];
-
-// Função de multiplicação
-function multiplicarMatrizes($A, $B)
-{
-    $linhasA = count($A);
-    $colunasA = count($A[0]);
-    $linhasB = count($B);
-    $colunasB = count($B[0]);
-
-    if ($colunasA != $linhasB)
-        return false;
-
-    $resultado = [];
-    for ($i = 0; $i < $linhasA; $i++) {
-        $resultado[$i] = [];
-        for ($j = 0; $j < $colunasB; $j++) {
-            $soma = 0;
-            for ($k = 0; $k < $colunasA; $k++) {
-                $soma += $A[$i][$k] * $B[$k][$j];
-            }
-            $resultado[$i][$j] = $soma;
-        }
-    }
-    return $resultado;
-}
-
-// Criptografar
-function criptografarMatriz($matriz, $codificadora)
-{
-    $linhasCod = count($codificadora);
-    $colunasCod = count($codificadora[0]);
-    $linhasMat = count($matriz);
-    $colunasMat = count($matriz[0]);
-
-    // Se for compatível
-    if ($linhasMat == $linhasCod) {
-        return multiplicarMatrizes($codificadora, $matriz);
-    }
-    // Se matriz resultado tem menos linhas
-    elseif ($linhasMat < $linhasCod) {
-        $matrizAjustada = $matriz;
-        for ($i = $linhasMat; $i < $linhasCod; $i++) {
-            $matrizAjustada[$i] = array_fill(0, $colunasMat, 0);
-        }
-        return multiplicarMatrizes($codificadora, $matrizAjustada);
-    }
-    // Se matriz resultado tem mais linhas
-    else {
-        $matrizAjustada = [];
-        for ($i = 0; $i < $linhasCod; $i++) {
-            $matrizAjustada[$i] = $matriz[$i];
-        }
-        return multiplicarMatrizes($codificadora, $matrizAjustada);
-    }
-}
 
 // Criptografar
 $matrizCriptografada = criptografarMatriz($matrizResultado, $matrizCodificadora);

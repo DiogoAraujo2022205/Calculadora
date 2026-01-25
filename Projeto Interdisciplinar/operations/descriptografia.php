@@ -248,7 +248,7 @@ function extrairMatrizDeHTML($html)
             </div>
 
             <div class="operation-instructions">
-                <p><strong>Método:</strong> Use a matriz descodificadora (inversa da codificadora) para descriptografar.
+                <p><strong>Método:</strong> Use a matriz descodificadora para descriptografar.
                 </p>
             </div>
         </header>
@@ -662,5 +662,6 @@ function extrairMatrizDeHTML($html)
 
 
 </html>
+
 
 

@@ -14,7 +14,7 @@ if (is_string($matrizResultado)) {
 if ($formato === 'json') {
     header('Content-Type: application/json');
     header('Content-Disposition: attachment; filename="mensagem_criptografada.json"');
-    echo json_encode($matrizResultado);
+    echo json_encode(['mensagem_criptografada' => $matrizResultado]);
 
 } elseif ($formato === 'html') {
     // APENAS a matriz criptografada em HTML simples
@@ -47,4 +47,5 @@ if ($formato === 'json') {
 }
 
 exit;
+
 ?>

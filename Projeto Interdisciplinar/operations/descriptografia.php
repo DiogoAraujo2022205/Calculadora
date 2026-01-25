@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $matrizDescriptografadora = [[-5, 2], [3, -1]]; // Inversa CORRETA de [[1,2],[3,5]]
         } else {
             // Inversa de [[1,2,1],[2,3,2],[1,2,2]]
-            $matrizDescriptografadora = [[2, -2, 1], [-2, 1, 0], [1, 0, -1]];
+            $matrizDescriptografadora = [[-2, 2, -1], [2, -1, 0], [-1, 0, 1]];
         }
 
         for ($i = 0; $i < $dimensaoCodificadora; $i++) {
@@ -503,15 +503,15 @@ function extrairMatrizDeHTML($html)
                 document.querySelector('[name="descodificadora_1_1"]').value = -1;
             } else {
                 // Inversa de [[1,2,1],[2,3,2],[1,2,2]]
-                document.querySelector('[name="descodificadora_0_0"]').value = 2;
-                document.querySelector('[name="descodificadora_0_1"]').value = -2;
-                document.querySelector('[name="descodificadora_0_2"]').value = 1;
-                document.querySelector('[name="descodificadora_1_0"]').value = -2;
-                document.querySelector('[name="descodificadora_1_1"]').value = 1;
+                document.querySelector('[name="descodificadora_0_0"]').value = -2;
+                document.querySelector('[name="descodificadora_0_1"]').value = 2;
+                document.querySelector('[name="descodificadora_0_2"]').value = -1;
+                document.querySelector('[name="descodificadora_1_0"]').value = 2;
+                document.querySelector('[name="descodificadora_1_1"]').value = -1;
                 document.querySelector('[name="descodificadora_1_2"]').value = 0;
-                document.querySelector('[name="descodificadora_2_0"]').value = 1;
+                document.querySelector('[name="descodificadora_2_0"]').value = -1;
                 document.querySelector('[name="descodificadora_2_1"]').value = 0;
-                document.querySelector('[name="descodificadora_2_2"]').value = -1;
+                document.querySelector('[name="descodificadora_2_2"]').value = 1;
             }
 
             alert('Matriz descodificadora padrão carregada!');
@@ -529,5 +529,6 @@ function extrairMatrizDeHTML($html)
         });
     </script>
 </body>
+
 
 </html>

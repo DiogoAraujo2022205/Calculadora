@@ -87,8 +87,8 @@ session_start();
                     </div>
                 </a>
 
-                <!-- Operação 6 -->
-                <a href="operations/criptografia.php" class="operation-card">
+                <!-- Operação 7 -->
+                <a href="operations/descriptografia.php" class="operation-card">
                     <div class="operation-content">
                         <h3>7. Descriptografar</h3>
                         <p>Descriptografar matrizes usando matrizes</p>
@@ -106,3 +106,4 @@ session_start();
 </body>
 
 </html>
+

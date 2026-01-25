@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <h1>Soma e Subtração de Matrizes</h1>
                 </div>
                 <a href="../index.php" class="back-btn">
-                    Voltar ao Menu
+                    <i class="fas fa-arrow-left"></i> Voltar ao Menu
                 </a>
             </div>
 
@@ -147,8 +147,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
 
                     <div class="form-actions">
-                        <button type="submit" name="configurar" class="btn">
-                            Configurar Matrizes
+                        <button type="submit" name="configurar" class="btn btn-primary">
+                            <i class="fas fa-check"></i> Configurar Matrizes
                         </button>
                     </div>
                 </form>
@@ -226,18 +226,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                         <div class="form-actions">
                             <button type="submit" name="calcular" class="btn">
-                                Calcular <?php echo $operacao == 'soma' ? 'Soma' : 'Subtração'; ?>
-                            </button>
+                                <i class="fas fa-calculator"></i> Calcular <?php echo $operacao == 'soma' ? 'Soma' : 'Subtração'; ?>
+                        </button>
 
                             <?php if (isset($_POST['configurar']) || isset($_SESSION['linhas'])): ?>
-                                <button type="button" onclick="preencherAleatorio()" class="btn">
-                                    Preencher Aleatoriamente
-                                </button>
+                                <button type="button" onclick="preencherAleatorio()" class="btn btn-secondary">
+                                <i class="fas fa-dice"></i> Preencher Aleatoriamente
+                            </button>
                             <?php endif; ?>
 
-                            <button type="reset" class="btn">
-                                Limpar Campos
-                            </button>
+                             <button type="reset" class="btn btn-warning">
+                            <i class="fas fa-undo"></i> Limpar Campos
+                        </button>
                         </div>
                     </form>
                 </section>
@@ -304,9 +304,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <i class="fas fa-file-alt"></i> Salvar HTML Criptografado
                             </button>
                         </form>
-                        <a href="?novo=1" class="btn">
-                            Novo Cálculo
-                        </a>
+                       <a href="?novo=1" class="btn btn-primary">
+                        <i class="fas fa-redo"></i> Novo Cálculo
+                    </a>
                     </div>
                 </section>
             <?php endif; ?>

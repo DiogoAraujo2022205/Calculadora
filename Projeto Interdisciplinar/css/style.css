@@ -57,6 +57,11 @@ body {
     gap: 15px;
 }
 
+.logo i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
 /* Descrição do Projeto */
 .project-description {
     background: white;
@@ -108,6 +113,12 @@ body {
     min-height: 150px;
 }
 
+.operation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    border-color: var(--dark-color);
+    background: white;
+}
 
 
 /* index */

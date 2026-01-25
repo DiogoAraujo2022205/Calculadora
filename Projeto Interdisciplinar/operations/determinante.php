@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <h1>Determinante de Matriz</h1>
                 </div>
                 <a href="../index.php" class="back-btn">
-                    Voltar ao Menu
+                   <i class="fas fa-arrow-left"></i> Voltar ao Menu
                 </a>
             </div>
 
@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     <div class="form-actions">
                         <button type="submit" name="configurar" class="btn btn-primary">
-                            Configurar Matriz
+                             <i class="fas fa-check"></i>Configurar Matriz
                         </button>
                     </div>
                 </form>
@@ -168,17 +168,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                         <div class="form-actions">
                             <button type="submit" name="calcular" class="btn btn-success btn-large">
-                                Calcular Determinante
+                                <i class="fas fa-calculator"></i>Calcular Determinante
                             </button>
 
                             <?php if (isset($_POST['configurar']) || isset($_SESSION['dimensao'])): ?>
                                 <button type="button" onclick="preencherAleatorio()" class="btn btn-secondary">
-                                    Preencher Aleatoriamente
+                                    <i class="fas fa-dice"></i>Preencher Aleatoriamente
                                 </button>
                             <?php endif; ?>
 
                             <button type="reset" class="btn btn-warning">
-                                Limpar Campos
+                                <i class="fas fa-undo"></i>Limpar Campos
                             </button>
                         </div>
                     </form>
@@ -226,7 +226,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                          Salvar Resultado
                     </button> -->
                         <a href="?novo=1" class="btn btn-primary">
-                            Novo Cálculo
+                            <i class="fas fa-redo"></i>Novo Cálculo
                         </a>
                     </div>
                 </section>

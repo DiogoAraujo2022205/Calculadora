@@ -528,7 +528,138 @@ function extrairMatrizDeHTML($html)
             }
         });
     </script>
+     <style>
+        .tabela-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .tabela-container {
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Courier New', monospace;
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .upload-section {
+            margin-top: 20px;
+        }
+
+        .file-input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        .message-box {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px 0;
+        }
+
+        .mensagem-resultado {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2196f3;
+        }
+
+        .message-info {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .message-info i {
+            margin-right: 5px;
+            color: #666;
+        }
+
+        .error-message {
+            background-color: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #f44336;
+        }
+
+        .info-box {
+            margin-top: 10px;
+            padding: 8px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .tipo-info {
+            background-color: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .full-width {
+            width: 100%;
+        }
+
+        .conversao-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .numeros-section {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .numeros-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .numero-item {
+            background: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+
+        .mensagem-section {
+            background-color: #e8f5e8;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .matriz-final {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
 </body>
 
 
 </html>
+

@@ -18,7 +18,7 @@ $matrizesCodificadoras = [
     // Matriz 3x3 (para matrizes 3xN ou Nx3)
     '3x3' => [
         [1, 2, 1],
-        [2, 5, 2],
+        [2, 3, 2],
         [1, 2, 2]
     ],
 
@@ -123,3 +123,4 @@ if ($formato === 'json') {
 
 exit;
 ?>
+

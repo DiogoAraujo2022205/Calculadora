@@ -110,8 +110,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <h1>Multiplicação de Matrizes</h1>
                 </div>
 
-                <a href="../index.php" class="back-btn">
-                    Voltar ao Menu
+                 <a href="../index.php" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Voltar ao Menu
                 </a>
 
             </div>
@@ -192,9 +192,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
 
                     <div class="form-actions">
-                        <button type="submit" name="configurar" class="btn btn-primary">
-                            Configurar Matrizes
+                            <button type="submit" name="configurar" class="btn btn-primary">
+                            <i class="fas fa-check"></i> Configurar Matrizes
                         </button>
+                        
                     </div>
                 </form>
             </section>
@@ -260,7 +261,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="matrix-cell">
                                                     <input type="number" step="any" name="<?php echo $nome; ?>"
                                                         value="<?php echo $valor; ?>" placeholder="0" class="matrix-input">
-
                                                 </div>
                                             <?php endfor; ?>
                                         </div>
@@ -271,17 +271,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                         <div class="form-actions">
                             <button type="submit" name="calcular" class="btn btn-success btn-large">
-                                Calcular Multiplicação
+                                <i class="fas fa-calculator"></i>Calcular Multiplicação
                             </button>
 
                             <?php if (isset($_POST['configurar']) || (isset($_SESSION['linhasA']) && $colunasA == $linhasB)): ?>
                                 <button type="button" onclick="preencherAleatorio()" class="btn btn-secondary">
-                                    Preencher Aleatoriamente
+                                    <i class="fas fa-dice"></i>Preencher Aleatoriamente
                                 </button>
                             <?php endif; ?>
 
                             <button type="reset" class="btn btn-warning">
-                                Limpar Campos
+                                <i class="fas fa-undo"></i> Limpar Campos
                             </button>
                         </div>
                     </form>
@@ -356,7 +356,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </button>
                         </form>
                         <a href="?novo=1" class="btn btn-primary">
-                            Novo Cálculo
+                            <i class="fas fa-redo"></i>Novo Cálculo
                         </a>
                     </div>
                 </section>
@@ -390,11 +390,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Mostrar mensagem
             alert('Matrizes preenchidas com valores aleatórios entre 1 e 10!');
-        }
-
-        // Função para salvar resultado (simulação)
-        function salvarResultado() {
-            alert('Funcionalidade de salvar resultado será implementada na versão final!');
         }
 
         // Atualizar verificação de compatibilidade em tempo real
@@ -464,6 +459,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     </style>
 </body>
-
-
 </html>

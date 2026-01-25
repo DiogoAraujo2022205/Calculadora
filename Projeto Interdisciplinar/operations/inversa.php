@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <h1> Matriz Inversa (A⁻¹)</h1>
                 </div>
                 <a href="../index.php" class="back-btn">
-                    Voltar ao Menu
+                   <i class="fas fa-arrow-left"></i> Voltar ao Menu
                 </a>
             </div>
 
@@ -126,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     <div class="form-actions">
                         <button type="submit" name="configurar" class="btn">
-                            Configurar Matriz
+                             <i class="fas fa-check"></i>Configurar Matriz
                         </button>
                     </div>
                 </form>
@@ -168,17 +168,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                         <div class="form-actions">
                             <button type="submit" name="calcular" class="btn">
-                                Calcular Matriz Inversa
+                                <i class="fas fa-calculator"></i>Calcular Matriz Inversa
                             </button>
 
                             <?php if (isset($_POST['configurar']) || isset($_SESSION['dimensao'])): ?>
                                 <button type="button" onclick="preencherAleatorio()" class="btn">
-                                    Preencher Aleatoriamente
+                                    <i class="fas fa-dice"></i>Preencher Aleatoriamente
                                 </button>
                             <?php endif; ?>
 
                             <button type="reset" class="btn">
-                                Limpar Campos
+                                <i class="fas fa-undo"></i>Limpar Campos
                             </button>
                         </div>
                     </form>
@@ -236,7 +236,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                         <!-- Opção de novo cálculo -->
                         <a href="?novo=1" class="btn">
-                            Novo Cálculo
+                            <i class="fas fa-redo"></i>Novo Cálculo
                         </a>
                     </div>
                 </section>
@@ -266,15 +266,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             alert('Matriz preenchida com valores aleatórios entre -10 e 10!');
         }
-
-
-        // Focar no primeiro campo ao carregar
-        document.addEventListener('DOMContentLoaded', function () {
-            const primeiroCampo = document.querySelector('.matrix-input');
-            if (primeiroCampo) {
-                primeiroCampo.focus();
-            }
-        });
     </script>
 </body>
 

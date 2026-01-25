@@ -116,7 +116,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="operation-title">
                     <h1>Criptografia com Matrizes</h1>
                 </div>
-                <a href="../index.php" class="back-btn">Voltar ao Menu</a>
+                <a href="../index.php" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>Voltar ao Menu</a>
             </div>
 
             <div class="operation-instructions">
@@ -178,9 +179,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
 
                     <div class="form-actions">
-                        <button type="submit" name="configurar" class="btn">Configurar Matriz Codificadora</button>
-                        <button type="button" onclick="preencherAleatorio()" class="btn">Preencher
-                            Aleatoriamente</button>
+                        <button type="submit" name="configurar" class="btn">  <i class="fas fa-check"></i>Configurar Matriz Codificadora</button>
+                        <button type="button" onclick="preencherAleatorio()" class="btn">
+                            <i class="fas fa-dice"></i>Preencher Aleatoriamente</button>
                     </div>
                 </form>
             </section>
@@ -258,8 +259,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </div>
 
                         <div class="form-actions">
-                            <button type="submit" name="calcular" class="btn">Criptografar Mensagem</button>
-                            <button type="button" onclick="carregarExemplo()" class="btn">Carregar Exemplo</button>
+                            <button type="submit" name="calcular" class="btn"><i class="fas fa-lock"></i>Criptografar Mensagem</button>
+                            <button type="button" onclick="carregarExemplo()" class="btn"><i class="fas fa-file-import"></i>Carregar Exemplo</button>
                         </div>
                     </form>
                 </section>
@@ -363,11 +364,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <i class="fas fa-file-alt"></i> Salvar HTML Criptografado
                             </button>
                         </form>
-
                         <a href="?novo=1" class="btn">
-                            Nova Criptografia
+                            <i class="fas fa-redo"></i>Nova Criptografia
                         </a>
-
                     </div>
                 </section>
             <?php endif; ?>
@@ -530,5 +529,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     </style>
 </body>
-
 </html>

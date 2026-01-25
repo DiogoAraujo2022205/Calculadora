@@ -29,8 +29,8 @@
 }
 
 .back-btn {
-    background: rgba(77, 77, 77, 0.622);
-    color: rgb(0, 0, 0);
+    background: rgba(104, 110, 101, 0.788);
+    color: rgb(255, 253, 253);
     padding: 10px 20px;
     border-radius: 8px;
     text-decoration: none;
@@ -78,9 +78,6 @@
     gap: 10px;
     margin-bottom: 5px;
 }
-
-/*verificar dps*/
-
 
 /* Formulários */
 .config-form .form-row {

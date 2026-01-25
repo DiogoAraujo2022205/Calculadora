@@ -373,23 +373,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <script>
         // Função para preencher valores aleatórios
-        function preencherAleatorio() {
+         function preencherAleatorio() {
             // Preencher Matriz A
             <?php for ($i = 0; $i < $linhasA; $i++): ?>
                 <?php for ($j = 0; $j < $colunasA; $j++): ?>
-                    document.getElementsByName('matrizA_<?php echo $i; ?>_<?php echo $j; ?>')[0].value = Math.floor(Math.random() * 10) + 1;
+                    document.getElementsByName('matrizA_<?php echo $i; ?>_<?php echo $j; ?>')[0].value = Math.floor(Math.random() * 20) - 10;
                 <?php endfor; ?>
             <?php endfor; ?>
 
             // Preencher Matriz B
             <?php for ($i = 0; $i < $linhasB; $i++): ?>
                 <?php for ($j = 0; $j < $colunasB; $j++): ?>
-                    document.getElementsByName('matrizB_<?php echo $i; ?>_<?php echo $j; ?>')[0].value = Math.floor(Math.random() * 10) + 1;
+                    document.getElementsByName('matrizB_<?php echo $i; ?>_<?php echo $j; ?>')[0].value = Math.floor(Math.random() * 20) - 10;
                 <?php endfor; ?>
             <?php endfor; ?>
 
             // Mostrar mensagem
-            alert('Matrizes preenchidas com valores aleatórios entre 1 e 10!');
+            alert('Matrizes preenchidas com valores aleatórios entre -10 e 10!');
         }
 
         // Atualizar verificação de compatibilidade em tempo real
@@ -460,3 +460,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </style>
 </body>
 </html>
+

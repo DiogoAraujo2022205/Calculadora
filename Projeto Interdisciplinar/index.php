@@ -18,6 +18,7 @@ session_start();
         <header class="main-header">
             <div class="header-content">
                 <div class="logo">
+                    <i class="fas fa-calculator"></i>
                     <h1>Calculadora de Matrizes</h1>
                 </div>
                 <div class="project-info">

@@ -385,3 +385,131 @@ function criptografarMensagem($mensagem, $matrizCodificadora) {
     
     return $resultado;
 }
+
+function gerarRelatorioDeterminante($matriz, $determinante) {
+    $n = count($matriz);
+    $html = "<!DOCTYPE html>\n";
+    $html .= "<html lang='pt'>\n";
+    $html .= "<head>\n";
+    $html .= "<meta charset='UTF-8'>\n";
+    $html .= "<title>Relatório do Determinante</title>\n";
+    $html .= "<style>\n";
+    $html .= "body { font-family: Arial, sans-serif; margin: 20px; }\n";
+    $html .= "h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }\n";
+    $html .= "h2 { color: #3498db; margin-top: 25px; }\n";
+    $html .= ".matriz { display: inline-block; margin: 15px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; background: #f9f9f9; }\n";
+    $html .= ".linha { display: flex; }\n";
+    $html .= ".elemento { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd; font-size: 16px; }\n";
+    $html .= ".resultado-final { font-size: 24px; font-weight: bold; color: #2eaccc; margin: 20px 0; padding: 15px; background: #f0f9f0; border-radius: 5px; }\n";
+    $html .= ".passo { margin: 20px 0; padding: 15px; background: #f8f9fa; border-left: 4px solid #3498db; }\n";
+    $html .= "</style>\n";
+    $html .= "</head>\n";
+    $html .= "<body>\n";
+    
+    $html .= "<h1>Cálculo do Determinante</h1>\n";
+    $html .= "<div class='info'>\n";
+    $html .= "<p><strong>Dimensão da matriz:</strong> {$n}×{$n}</p>\n";
+    $html .= "</div>\n";
+    
+    // Matriz original
+    $html .= "<h2>1. Matriz Original</h2>\n";
+    $html .= gerarMatrizHTML($matriz);
+    
+    // Cálculo passo a passo
+    $html .= "<h2>2. Cálculo Passo a Passo</h2>\n";
+    
+    if ($n == 1) {
+        $html .= "<div class='passo'>\n";
+        $html .= "<p>Para uma matriz 1×1, o determinante é o próprio elemento:</p>\n";
+        $html .= "<p><strong>det(A) = a₁₁ = " . $matriz[0][0] . "</strong></p>\n";
+        $html .= "</div>\n";
+    } elseif ($n == 2) {
+        $html .= gerarPassos2x2($matriz);
+    } elseif ($n == 3) {
+        $html .= gerarPassos3x3($matriz);
+    }
+    
+    // Resultado final
+    $html .= "<h2>3. Resultado Final</h2>\n";
+    $html .= "<div class='resultado-final'>\n";
+    $html .= "det(A) = " . number_format($determinante, 2) . "\n";
+    $html .= "</div>\n";
+    $html .= "</body>\n";
+    $html .= "</html>\n";
+    
+    return $html;
+}
+
+function gerarMatrizHTML($matriz, $pivotI = -1, $pivotJ = -1) {
+    $n = count($matriz);
+    $html = "<div class='matriz'>\n";
+    
+    for ($i = 0; $i < $n; $i++) {
+        $html .= "<div class='linha'>\n";
+        for ($j = 0; $j < $n; $j++) {
+            $classe = "elemento";
+            if ($i == $pivotI && $j == $pivotJ) {
+                $classe .= " pivot";
+            }
+            $valor = number_format($matriz[$i][$j], 2);
+            $html .= "<div class='{$classe}'>{$valor}</div>\n";
+        }
+        $html .= "</div>\n";
+    }
+    $html .= "</div>\n";
+    
+    return $html;
+}
+
+function gerarPassos2x2($matriz) {
+    $a = $matriz[0][0];
+    $b = $matriz[0][1];
+    $c = $matriz[1][0];
+    $d = $matriz[1][1];
+    $det = ($a * $d) - ($b * $c);
+    
+    $html = "<div class='passo'>\n";
+    $html .= "<p><strong>Fórmula para matriz 2×2:</strong> det(A) = ad - bc</p>\n";
+    $html .= "<p><strong>Passo 1:</strong> a × d = {$a} × {$d} = " . ($a * $d) . "</p>\n";
+    $html .= "<p><strong>Passo 2:</strong> b × c = {$b} × {$c} = " . ($b * $c) . "</p>\n";
+    $html .= "<p><strong>Passo 3:</strong> det(A) = " . ($a * $d) . " - " . ($b * $c) . " = " . $det . "</p>\n";
+    $html .= "</div>\n";
+    
+    return $html;
+}
+
+function gerarPassos3x3($matriz) {
+    $a = $matriz[0][0];
+    $b = $matriz[0][1];
+    $c = $matriz[0][2];
+    $d = $matriz[1][0];
+    $e = $matriz[1][1];
+    $f = $matriz[1][2];
+    $g = $matriz[2][0];
+    $h = $matriz[2][1];
+    $i = $matriz[2][2];
+    
+    $passo1 = $a * ($e * $i - $f * $h);
+    $passo2 = $b * ($d * $i - $f * $g);
+    $passo3 = $c * ($d * $h - $e * $g);
+    $det = $passo1 - $passo2 + $passo3;
+    
+    $html = "<div class='passo'>\n";
+    $html .= "<p><strong>Fórmula para matriz 3×3:</strong><br>\n";
+    $html .= "det(A) = a(ei − fh) − b(di − fg) + c(dh − eg)</p>\n";
+    
+    $html .= "<p><strong>Passo 1:</strong> a(ei − fh) = {$a} × (({$e}×{$i}) - ({$f}×{$h})) = {$a} × (" . ($e*$i) . " - " . ($f*$h) . ")</p>\n";
+    $html .= "<p> = {$a} × " . ($e*$i - $f*$h) . " = " . $passo1 . "</p>\n";
+    
+    $html .= "<p><strong>Passo 2:</strong> b(di − fg) = {$b} × (({$d}×{$i}) - ({$f}×{$g})) = {$b} × (" . ($d*$i) . " - " . ($f*$g) . ")</p>\n";
+    $html .= "<p> = {$b} × " . ($d*$i - $f*$g) . " = " . $passo2 . "</p>\n";
+    
+    $html .= "<p><strong>Passo 3:</strong> c(dh − eg) = {$c} × (({$d}×{$h}) - ({$e}×{$g})) = {$c} × (" . ($d*$h) . " - " . ($e*$g) . ")</p>\n";
+    $html .= "<p> = {$c} × " . ($d*$h - $e*$g) . " = " . $passo3 . "</p>\n";
+    
+    $html .= "<p><strong>Passo 4:</strong> det(A) = " . $passo1 . " - " . $passo2 . " + " . $passo3 . "</p>\n";
+    $html .= "<p> = " . $det . "</p>\n";
+    $html .= "</div>\n";
+    
+    return $html;
+}

@@ -7,6 +7,7 @@ $erro = '';
 $matriz = [];
 $determinante = null;
 $dimensao = 2;
+$passoapasso = null; 
 
 // Processar formulário
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -47,6 +48,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (is_string($determinante) && strpos($determinante, 'Erro') !== false) {
                 $erro = $determinante;
                 $determinante = null;
+            } else {
+                // GERAR RELATÓRIO - APENAS ESTA PARTE É NOVA
+                if (function_exists('gerarRelatorioDeterminante')) {
+                    $relatorioHTML = gerarRelatorioDeterminante($matriz, $determinante);
+                    
+                    // Criar pasta temp se não existir
+                    if (!is_dir('../temp')) {
+                        mkdir('../temp', 0755, true);
+                    }
+                    
+                    // Salvar relatório
+                    $passoapasso = 'relatorio_det_' . date('Ymd_His') . '_' . uniqid() . '.html';
+                    file_put_contents('../temp/' . $passoapasso, $relatorioHTML);
+                }
             }
         }
     }
@@ -66,6 +81,67 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/operations.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ADICIONAR ESTE ESTILO */
+        .btn-info {
+            background: linear-gradient(to right, #17a2b8, #138496);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(23, 162, 184, 0.2);
+        }
+
+        .btn-info:hover {
+            background: linear-gradient(to right, #138496, #117a8b);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(23, 162, 184, 0.3);
+            text-decoration: none;
+        }
+
+        .btn-info i {
+            font-size: 1.1em;
+        }
+
+        .result-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .determinante-result {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .determinante-value {
+            margin: 20px 0;
+            font-size: 1.5rem;
+        }
+
+        .det-symbol {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-right: 15px;
+        }
+
+        .det-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #329147;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
 </head>
 
 <body>
@@ -222,9 +298,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
 
                     <div class="result-actions">
-                        <!-- <button onclick="salvarResultado()" class="btn btn-secondary">
-                         Salvar Resultado
-                    </button> -->
+                        <!-- ADICIONAR ESTE BOTÃO -->
+                        <?php if ($passoapasso): ?>
+                            <a href="../temp/<?php echo $passoapasso; ?>" 
+                               download="Relatorio_Determinante_<?php echo date('Ymd_His'); ?>.html" 
+                               class="btn">
+                                <i class="fas fa-file-download"></i> Ficheiro Passo a Passo</a>
+                        <?php endif; ?>
+                        
                         <a href="?novo=1" class="btn btn-primary">
                             <i class="fas fa-redo"></i>Novo Cálculo
                         </a>
@@ -253,36 +334,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Mostrar mensagem
             alert('Matriz preenchida com valores aleatórios entre -10 e 10!');
         }
-        // Função para salvar resultado (simulação)
-        function salvarResultado() {
-            alert('Funcionalidade de salvar resultado será implementada na versão final!');
-        }
-
     </script>
-    <style>
-        .determinante-result {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .determinante-value {
-            margin: 20px 0;
-            font-size: 1.5rem;
-        }
-
-        .det-symbol {
-            font-weight: bold;
-            color: #2c3e50;
-            margin-right: 15px;
-        }
-
-        .det-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #329147;
-            font-family: 'Courier New', monospace;
-        }
-    </style>
 </body>
-
 </html>

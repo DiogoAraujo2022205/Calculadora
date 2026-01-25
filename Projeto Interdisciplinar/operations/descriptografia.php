@@ -137,7 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 } else {
     $dimensaoCodificadora = $_SESSION['dimensao'] ?? 2;
     if ($dimensaoCodificadora == 3) {
-        $matrizDescriptografadora = [[2, -2, 1], [-2, 1, 0], [1, 0, -1]];
+       $matrizDescriptografadora = [[-2, 2, -1], [2, -1, 0], [-1, 0, 1]];
     }
 }
 
@@ -662,4 +662,5 @@ function extrairMatrizDeHTML($html)
 
 
 </html>
+
 
